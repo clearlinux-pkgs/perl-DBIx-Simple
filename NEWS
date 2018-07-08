@@ -1,0 +1,8 @@
+libdbix-simple-perl (1.37-1) unstable; urgency=medium
+
+  From upstream Changes:  
+
+  !! - RaiseError is now enabled by default, as announced [in 2008].
+       Set PERL_DBIX_SIMPLE_NO_RAISEERROR=1 to get the old behavior.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 19 Jan 2018 19:47:44 +0100
