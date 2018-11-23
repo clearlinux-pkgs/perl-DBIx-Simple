@@ -4,7 +4,7 @@
 #
 Name     : perl-DBIx-Simple
 Version  : 1.37
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libd/libdbix-simple-perl/libdbix-simple-perl_1.37-1.debian.tar.xz
