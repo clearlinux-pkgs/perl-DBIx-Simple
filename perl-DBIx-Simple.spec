@@ -4,11 +4,11 @@
 #
 Name     : perl-DBIx-Simple
 Version  : 1.37
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libd/libdbix-simple-perl/libdbix-simple-perl_1.37-1.debian.tar.xz
-Summary  : 'Very complete easy-to-use OO interface to DBI'
+Summary  : Very complete easy-to-use OO interface to DBI
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-DBIx-Simple-license = %{version}-%{release}
@@ -28,6 +28,7 @@ make install
 Summary: dev components for the perl-DBIx-Simple package.
 Group: Development
 Provides: perl-DBIx-Simple-devel = %{version}-%{release}
+Requires: perl-DBIx-Simple = %{version}-%{release}
 
 %description dev
 dev components for the perl-DBIx-Simple package.
@@ -46,7 +47,7 @@ license components for the perl-DBIx-Simple package.
 cd ..
 %setup -q -T -D -n DBIx-Simple-1.37 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/DBIx-Simple-1.37/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/DBIx-Simple-1.37/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
