@@ -4,14 +4,15 @@
 #
 Name     : perl-DBIx-Simple
 Version  : 1.37
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libd/libdbix-simple-perl/libdbix-simple-perl_1.37-1.debian.tar.xz
-Summary  : Very complete easy-to-use OO interface to DBI
+Summary  : 'Very complete easy-to-use OO interface to DBI'
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-DBIx-Simple-license = %{version}-%{release}
+Requires: perl-DBIx-Simple-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(DBI)
 
@@ -42,18 +43,28 @@ Group: Default
 license components for the perl-DBIx-Simple package.
 
 
+%package perl
+Summary: perl components for the perl-DBIx-Simple package.
+Group: Default
+Requires: perl-DBIx-Simple = %{version}-%{release}
+
+%description perl
+perl components for the perl-DBIx-Simple package.
+
+
 %prep
 %setup -q -n DBIx-Simple-1.37
-cd ..
-%setup -q -T -D -n DBIx-Simple-1.37 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libdbix-simple-perl_1.37-1.debian.tar.xz
+cd %{_builddir}/DBIx-Simple-1.37
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/DBIx-Simple-1.37/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/DBIx-Simple-1.37/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -63,7 +74,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -72,7 +83,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple/deblicense_copyright
+cp %{_builddir}/DBIx-Simple-1.37/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple/f56d48ae18bc167449bc8060f1382d28c4fa49c4
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -85,10 +96,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/DBIx/Simple.pm
-/usr/lib/perl5/vendor_perl/5.28.2/DBIx/Simple/Comparison.pod
-/usr/lib/perl5/vendor_perl/5.28.2/DBIx/Simple/Examples.pod
-/usr/lib/perl5/vendor_perl/5.28.2/DBIx/Simple/Result/RowObject.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -99,4 +106,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-DBIx-Simple/deblicense_copyright
+/usr/share/package-licenses/perl-DBIx-Simple/f56d48ae18bc167449bc8060f1382d28c4fa49c4
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple.pm
+/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Comparison.pod
+/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Examples.pod
+/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Result/RowObject.pm
