@@ -4,7 +4,7 @@
 #
 Name     : perl-DBIx-Simple
 Version  : 1.37
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libd/libdbix-simple-perl/libdbix-simple-perl_1.37-1.debian.tar.xz
@@ -83,7 +83,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple
-cp %{_builddir}/DBIx-Simple-1.37/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple/f56d48ae18bc167449bc8060f1382d28c4fa49c4
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-DBIx-Simple/f56d48ae18bc167449bc8060f1382d28c4fa49c4
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -110,7 +110,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple.pm
-/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Comparison.pod
-/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Examples.pod
-/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Simple/Result/RowObject.pm
+/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple.pm
+/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Comparison.pod
+/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Examples.pod
+/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Result/RowObject.pm
