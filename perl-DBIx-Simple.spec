@@ -4,7 +4,7 @@
 #
 Name     : perl-DBIx-Simple
 Version  : 1.37
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JU/JUERD/DBIx-Simple-1.37.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libd/libdbix-simple-perl/libdbix-simple-perl_1.37-1.debian.tar.xz
@@ -110,7 +110,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple.pm
-/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Comparison.pod
-/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Examples.pod
-/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Simple/Result/RowObject.pm
+/usr/lib/perl5/vendor_perl/5.30.3/DBIx/Simple.pm
+/usr/lib/perl5/vendor_perl/5.30.3/DBIx/Simple/Comparison.pod
+/usr/lib/perl5/vendor_perl/5.30.3/DBIx/Simple/Examples.pod
+/usr/lib/perl5/vendor_perl/5.30.3/DBIx/Simple/Result/RowObject.pm
